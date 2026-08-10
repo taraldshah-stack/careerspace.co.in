@@ -42,7 +42,16 @@ export default defineConfig(async ({ command, mode }) => {
 
   // Nitro is the SSR/deploy layer — target Vercel on production builds.
   if (command === "build") {
-    plugins.push(nitro({ preset: "vercel" }));
+    // Inline dynamic-import chunks into a single server bundle. Without this,
+    // rolldown splits the SSR entry and a shared chunk into two files that
+    // circularly import each other, and createCsrfMiddleware evaluates as
+    // `undefined` at module load, 500-ing every request.
+    plugins.push(
+      nitro({
+        preset: "vercel",
+        rolldownConfig: { output: { inlineDynamicImports: true } },
+      }),
+    );
   }
 
   // Inline VITE_* env vars so they are available to both client and server builds.
