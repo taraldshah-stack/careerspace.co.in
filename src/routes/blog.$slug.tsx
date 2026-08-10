@@ -11,7 +11,12 @@ export const Route = createFileRoute("/blog/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Article not found — Career Space" }, { name: "robots", content: "noindex" }] };
+      return {
+        meta: [
+          { title: "Article not found — Career Space" },
+          { name: "robots", content: "noindex" },
+        ],
+      };
     }
     return {
       meta: [
@@ -59,7 +64,7 @@ function Article() {
           <div className="rule-grid absolute inset-0 opacity-20" aria-hidden />
           <div className="relative mx-auto max-w-[860px] px-6 pb-20 pt-16 lg:pb-24">
             <p className="eyebrow mt-6 text-spark">
-              {post.published_at ? new Date(post.published_at).toLocaleDateString() : "New"} · {" "}
+              {post.published_at ? new Date(post.published_at).toLocaleDateString() : "New"} ·{" "}
               {post.read_minutes} min read
             </p>
             <h1 className="mt-6 text-[clamp(2rem,4.6vw,3.4rem)] text-background">{post.title}</h1>

@@ -30,7 +30,8 @@ export type EmailPayload = {
 };
 
 export async function sendEmail(payload: EmailPayload): Promise<void> {
-  if (!config.pass) throw new Error("ZOHO_SMTP_PASS is not set. Add your Zoho app-specific password.");
+  if (!config.pass)
+    throw new Error("ZOHO_SMTP_PASS is not set. Add your Zoho app-specific password.");
   const transport = transporter();
   await transport.sendMail({
     from: `"Career Space" <${config.user}>`,
@@ -39,8 +40,6 @@ export async function sendEmail(payload: EmailPayload): Promise<void> {
     text: payload.text,
     html: payload.html ?? payload.text,
     replyTo: config.user,
-    headers: payload.listUnsubscribe
-      ? { "List-Unsubscribe": payload.listUnsubscribe }
-      : undefined,
+    headers: payload.listUnsubscribe ? { "List-Unsubscribe": payload.listUnsubscribe } : undefined,
   });
 }

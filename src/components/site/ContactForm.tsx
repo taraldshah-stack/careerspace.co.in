@@ -21,7 +21,13 @@ export function ContactForm() {
 
     setLoading(true);
     try {
-      const payload = { name, email, phone: phone || null, message, created_at: new Date().toISOString() } as any;
+      const payload = {
+        name,
+        email,
+        phone: phone || null,
+        message,
+        created_at: new Date().toISOString(),
+      } as any;
       // Try to insert into a `contacts` table in Supabase if available
       // If Supabase isn't configured the client will throw and we show an error
       const { data, error } = await supabase.from("contacts").insert(payload);
@@ -101,7 +107,9 @@ export function ContactForm() {
         >
           {loading ? "Sending..." : "Send message"}
         </button>
-        {status === "success" && <p className="text-sm text-spark">Thanks — we'll get back soon.</p>}
+        {status === "success" && (
+          <p className="text-sm text-spark">Thanks — we'll get back soon.</p>
+        )}
         {status === "error" && <p className="text-sm text-accent">{errorText}</p>}
       </div>
     </form>

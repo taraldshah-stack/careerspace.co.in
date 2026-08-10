@@ -67,10 +67,7 @@ function Contacts() {
             <div className="min-w-0">
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                 <p className="font-semibold text-ink">{c.name}</p>
-                <a
-                  href={`mailto:${c.email}`}
-                  className="text-sm text-accent hover:underline"
-                >
+                <a href={`mailto:${c.email}`} className="text-sm text-accent hover:underline">
                   {c.email}
                 </a>
                 {c.phone && <span className="text-sm text-muted-foreground">{c.phone}</span>}

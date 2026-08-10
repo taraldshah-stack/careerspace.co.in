@@ -3,12 +3,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 
-import {
-  deleteCampaign,
-  listCampaigns,
-  saveCampaign,
-  sendCampaign,
-} from "@/lib/admin.functions";
+import { deleteCampaign, listCampaigns, saveCampaign, sendCampaign } from "@/lib/admin.functions";
 import { Field, PageHead, StatusPill, btnGhost, btnPrimary, inputCls } from "@/components/admin/ui";
 
 export const Route = createFileRoute("/_authenticated/admin/campaigns")({
@@ -84,10 +79,18 @@ function Campaigns() {
         <section className="space-y-5">
           <h2 className="text-2xl text-ink">{editing ? "Edit campaign" : "New campaign"}</h2>
           <Field label="Subject">
-            <input className={inputCls} value={subject} onChange={(e) => setSubject(e.target.value)} />
+            <input
+              className={inputCls}
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+            />
           </Field>
           <Field label="Preview text">
-            <input className={inputCls} value={preview} onChange={(e) => setPreview(e.target.value)} />
+            <input
+              className={inputCls}
+              value={preview}
+              onChange={(e) => setPreview(e.target.value)}
+            />
           </Field>
           <Field label="Message">
             <textarea

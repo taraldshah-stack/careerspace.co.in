@@ -50,39 +50,39 @@ function BlogIndex() {
             <p className="text-muted-foreground">First article coming soon.</p>
           )}
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((p: any, i: number) => (
-            <Reveal key={p.id} delay={i * 80}>
-              <Link to="/blog/$slug" params={{ slug: p.slug }} className="group block">
-                {p.cover_url ? (
-                  <img
-                    src={p.cover_url}
-                    alt={p.title}
-                    loading="lazy"
-                    className="aspect-video w-full rounded-sm object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                  />
-                ) : (
-                  <div className="rule-grid aspect-video w-full rounded-sm bg-secondary" />
-                )}
-                <p className="eyebrow mt-6 text-accent">
-                  {p.published_at ? new Date(p.published_at).toLocaleDateString() : "New"} ·{" "}
-                  {p.read_minutes} min
-                </p>
-                <h2 className="mt-3 text-2xl text-ink transition-colors group-hover:text-accent">
-                  {p.title}
-                </h2>
-                <p className="mt-3 leading-relaxed text-muted-foreground">{p.excerpt}</p>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-        <Link
-          to="/"
-          className="mt-20 inline-block text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-accent"
-        >
-          ← Back to Career Space
-        </Link>
-      </section>
-    </main>
+            {posts.map((p: any, i: number) => (
+              <Reveal key={p.id} delay={i * 80}>
+                <Link to="/blog/$slug" params={{ slug: p.slug }} className="group block">
+                  {p.cover_url ? (
+                    <img
+                      src={p.cover_url}
+                      alt={p.title}
+                      loading="lazy"
+                      className="aspect-video w-full rounded-sm object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    />
+                  ) : (
+                    <div className="rule-grid aspect-video w-full rounded-sm bg-secondary" />
+                  )}
+                  <p className="eyebrow mt-6 text-accent">
+                    {p.published_at ? new Date(p.published_at).toLocaleDateString() : "New"} ·{" "}
+                    {p.read_minutes} min
+                  </p>
+                  <h2 className="mt-3 text-2xl text-ink transition-colors group-hover:text-accent">
+                    {p.title}
+                  </h2>
+                  <p className="mt-3 leading-relaxed text-muted-foreground">{p.excerpt}</p>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+          <Link
+            to="/"
+            className="mt-20 inline-block text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-accent"
+          >
+            ← Back to Career Space
+          </Link>
+        </section>
+      </main>
     </PublicShell>
   );
 }

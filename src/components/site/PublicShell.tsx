@@ -31,7 +31,9 @@ function Nav() {
       style={{
         backgroundColor: solid ? "color-mix(in oklab, var(--ink) 92%, transparent)" : "transparent",
         backdropFilter: solid ? "blur(14px)" : "none",
-        borderBottom: solid ? "1px solid color-mix(in oklab, white 12%, transparent)" : "1px solid transparent",
+        borderBottom: solid
+          ? "1px solid color-mix(in oklab, white 12%, transparent)"
+          : "1px solid transparent",
       }}
     >
       <div className="mx-auto grid w-full max-w-[1200px] grid-cols-[auto_1fr_auto] items-center px-6 py-4 lg:px-10">
@@ -112,7 +114,12 @@ function SiteFooter() {
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="h-[18px] w-[18px]">
                   {s.paths.map((path) => (
-                    <path key={path.d} d={path.d} fillRule={path.fillRule} clipRule={path.clipRule} />
+                    <path
+                      key={path.d}
+                      d={path.d}
+                      fillRule={path.fillRule}
+                      clipRule={path.clipRule}
+                    />
                   ))}
                 </svg>
               </a>

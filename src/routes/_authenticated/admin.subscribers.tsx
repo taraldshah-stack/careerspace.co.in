@@ -64,7 +64,10 @@ function Subscribers() {
       {data && data.length === 0 && <p className="text-muted-foreground">No subscribers yet.</p>}
       <div className="divide-y divide-border border-y border-border">
         {data?.map((s: any) => (
-          <div key={s.id} className="grid gap-3 py-5 md:grid-cols-[1.4fr_1fr_auto_auto] md:items-center">
+          <div
+            key={s.id}
+            className="grid gap-3 py-5 md:grid-cols-[1.4fr_1fr_auto_auto] md:items-center"
+          >
             <div className="min-w-0">
               <p className="truncate text-ink">{s.email}</p>
               {s.name && <p className="text-sm text-muted-foreground">{s.name}</p>}
