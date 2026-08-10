@@ -267,8 +267,27 @@ export const sendCampaign = createServerFn({ method: "POST" })
       .select("email")
       .eq("status", "subscribed");
     if (sErr) throw new Error(sErr.message);
-    const recipients = subs?.length ?? 0;
+    const emails = (subs ?? []).map((s: any) => s.email).filter(Boolean) as string[];
+    const recipients = emails.length;
     if (recipients === 0) throw new Error("No active subscribers to send to");
+
+    // Send through Zoho SMTP as contact@careerspace.co.in (see email.server.ts).
+    const { sendEmail } = await import("@/lib/email.server");
+    const subject = campaign.subject;
+    const text = campaign.content || campaign.preview_text || "Hello";
+    const html = text
+      .split(/\n{2,}/)
+      .map((p: string) => `<p>${p.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</p>`)
+      .join("");
+    const listUnsubscribe = "<mailto:contact@careerspace.co.in?subject=unsubscribe>";
+
+    // Send sequentially with a short pause to respect SMTP rate limits.
+    for (let i = 0; i < emails.length; i++) {
+      const email = emails[i];
+      if (!email) continue;
+      await sendEmail({ to: email, subject, text, html, listUnsubscribe });
+      if (i < emails.length - 1) await new Promise((r) => setTimeout(r, 250));
+    }
 
     const { error } = await supabase
       .from("campaigns")
@@ -276,6 +295,21 @@ export const sendCampaign = createServerFn({ method: "POST" })
       .eq("id", data.id);
     if (error) throw new Error(error.message);
     return { ok: true as const, recipients };
+  });
+
+export const sendTestEmail = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input: unknown) => z.object({ to: z.string().email() }).parse(input))
+  .handler(async ({ context, data }) => {
+    await assertAdmin(context as Ctx);
+    const { sendEmail } = await import("@/lib/email.server");
+    await sendEmail({
+      to: data.to,
+      subject: "Test email from Career Space",
+      text: "This is a test email from Career Space (contact@careerspace.co.in). If you can read this, our Zoho SMTP setup is working.",
+      listUnsubscribe: "<mailto:contact@careerspace.co.in?subject=unsubscribe>",
+    });
+    return { ok: true as const };
   });
 
 export const listContacts = createServerFn({ method: "GET" })
