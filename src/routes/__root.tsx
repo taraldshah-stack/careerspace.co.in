@@ -87,7 +87,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Assessment, training and hands-on experience for students, teachers and institutions.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "/social-preview.png" },
+      { property: "og:image:width", content: "1080" },
+      { property: "og:image:height", content: "1080" },
+      { property: "og:image:alt", content: "Career Space logo" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "/social-preview.png" },
     ],
     links: [
       { rel: "icon", type: "image/png", href: "/favicon.png" },
