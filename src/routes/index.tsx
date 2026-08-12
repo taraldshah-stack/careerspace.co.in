@@ -52,7 +52,7 @@ function Nav() {
           : "1px solid transparent",
       }}
     >
-      <div className="mx-auto grid w-full max-w-[1200px] grid-cols-[auto_1fr_auto] items-center px-6 py-4 lg:px-10">
+      <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between px-6 py-4 lg:grid lg:grid-cols-[auto_1fr_auto] lg:px-10">
         <div className="flex items-center">
           <a href="#top" className="flex items-center gap-3">
             <img src={logoWhite} alt="Career Space" className="h-28 w-auto md:h-32" />
@@ -71,7 +71,7 @@ function Nav() {
             ))}
           </div>
         </nav>
-        <div className="flex items-center justify-end">
+        <div className="hidden items-center justify-end lg:flex">
           <a
             href="#contact"
             className="rounded-full bg-spark px-5 py-2 text-[0.82rem] font-semibold text-ink transition-transform duration-300 hover:-translate-y-0.5"
@@ -102,6 +102,13 @@ function Nav() {
               {item.label}
             </a>
           ))}
+          <a
+            href="#contact"
+            onClick={() => setOpen(false)}
+            className="mt-5 inline-flex rounded-full bg-spark px-5 py-2.5 text-sm font-semibold text-ink"
+          >
+            Start a conversation
+          </a>
         </div>
       )}
     </header>
