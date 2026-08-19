@@ -127,7 +127,6 @@ function Hero() {
       <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-32 lg:px-10 lg:pb-20 lg:pt-40">
         <div className="reveal max-w-4xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-background/20 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-background/70">
-            <span className="h-1.5 w-1.5 rounded-full bg-spark" />
             Bengaluru · Education
           </span>
           <h1 className="mt-7 text-[clamp(2.6rem,6.6vw,5.4rem)] text-background">
