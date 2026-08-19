@@ -13,13 +13,13 @@ export const Route = createFileRoute("/")({
   loader: () => listPublishedPosts({ data: { limit: 3 } }),
   head: () => ({
     meta: [
-      { title: "Career Space — From Confusion to Curiosity" },
+      { title: "Career Space: From Confusion to Curiosity" },
       {
         name: "description",
         content:
-          "Career Space is a Bengaluru education company working across maths assessment, career guidance and teacher training — assess, train, experience.",
+          "Career Space is a Bengaluru education company working across maths assessment, career guidance and teacher training: assess, train, experience.",
       },
-      { property: "og:title", content: "Career Space — From Confusion to Curiosity" },
+      { property: "og:title", content: "Career Space: From Confusion to Curiosity" },
       {
         property: "og:description",
         content:
@@ -137,7 +137,7 @@ function Hero() {
           </h1>
           <p className="mt-7 max-w-2xl text-[1.0625rem] leading-relaxed text-background/70">
             Career Space works at the intersection of mathematics education, career guidance and
-            teacher training — helping students discover paths they didn't know they'd love, and
+            teacher training, helping students discover paths they didn't know they'd love, and
             giving educators the tools to make that discovery possible.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -158,10 +158,10 @@ function Hero() {
         </div>
         <div className="reveal mt-14 grid gap-px overflow-hidden rounded-lg border border-background/15 bg-background/15 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { k: "10+", v: "years in maths education" },
-            { k: "3", v: "connected pillars" },
-            { k: "21", v: "years of academic advising" },
-            { k: "5", v: "partner institutions" },
+            { k: "10+", v: "years in education" },
+            { k: "300+", v: "teachers trained" },
+            { k: "800+", v: "students in workshops" },
+            { k: "20+", v: "cities covered across India" },
           ].map((s) => (
             <div key={s.k} className="bg-ink/60 px-6 py-7">
               <div className="font-display text-3xl text-spark md:text-4xl">{s.k}</div>
@@ -230,19 +230,19 @@ function Goal() {
         <SectionHead
           eyebrow="Our goal"
           title="Confusion is the first step toward curiosity."
-          lede="We started with a question every maths teacher has heard a hundred times — “when will I ever use this?” — and built our work around answering it properly."
+          lede="We started with a question every maths teacher has heard a hundred times, “when will I ever use this?”, and built our work around answering it properly."
         />
       </Reveal>
       <Reveal>
         <p className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-          Career Space is a Bengaluru-based education company. Our starting point is simple:
-          confusion is the first step toward curiosity — not a problem to avoid. We work across
+          Career Space is a Bengaluru based education company. Our starting point is simple:
+          confusion is the first step toward curiosity, not a problem to avoid. We work across
           maths education, career guidance and teacher training, helping students discover subjects
           and paths they didn't know they'd love, and helping teachers teach in ways that make that
           discovery possible.
         </p>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-          Instead of piling on more formulas and shortcuts, we design experiences: assessments that
+          Instead of piling on more formulae and shortcuts, we design experiences: assessments that
           show how a student actually thinks, workshops that turn abstract ideas into something you
           can touch and play with, and training that gives teachers the tools to run a classroom
           built on curiosity rather than memorization.
@@ -328,21 +328,21 @@ function MathCafe() {
         <Reveal>
           <p className="eyebrow text-spark">Featured program</p>
           <h2 className="mt-6 max-w-4xl text-[clamp(2.1rem,5vw,4rem)] text-background">
-            Math Cafe — Where Math Becomes Fun, Accessible, and Doable.
+            Math Cafe: Where Math Becomes Fun, Accessible, and Doable.
           </h2>
         </Reveal>
         <div className="mt-14 grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <Reveal delay={120}>
             <p className="text-lg leading-relaxed text-background/75">
-              Math Cafe is our flagship experience — a workshop that takes mathematics out of the
-              textbook and puts it somewhere far more interesting: your hands. Through hands-on
-              stations, real-world puzzles and guided discovery, participants meet mathematical
-              ideas the way they were meant to be found — by noticing patterns first, and getting
+              Math Cafe is our flagship experience, a workshop that takes mathematics out of the
+              textbook and puts it somewhere far more interesting: your hands. Through hands on
+              stations, real world puzzles and guided discovery, participants meet mathematical
+              ideas the way they were meant to be found, by noticing patterns first, and getting
               the official name for them later.
             </p>
             <p className="mt-6 text-lg leading-relaxed text-background/60">
-              One of our most-loved and most-repeated programs, run for schools, colleges and
-              community groups across Bengaluru — proof that maths doesn't need to be intimidating
+              One of our most loved and most repeated programs, run for schools, colleges and
+              community groups across Bengaluru, proof that maths doesn't need to be intimidating
               to be rigorous.
             </p>
             <a
@@ -382,13 +382,13 @@ function Team() {
       img: taral,
       name: "Taral Shah",
       role: "Founder, Teacher Trainer & Career Mentor",
-      bio: "Taral's decade-plus in mathematics education sits behind everything we do at Career Space. A Ministry-certified trainer, he runs hands-on workshops that get students curious and give teachers engaging, activity-based methods they can use right away.",
+      bio: "Taral's decade plus in mathematics education sits behind everything we do at Career Space. A Ministry certified trainer, he runs hands on workshops that get students curious and give teachers engaging, activity based methods they can use right away.",
     },
     {
       img: maria,
       name: "Dr. Maria Thomas",
       role: "Senior Academic Advisor",
-      bio: "A UK-based educator with a PhD and a long list of maths and teaching qualifications (MSc, MPhil, MStat-USA, B.Ed, CILT-UK, PGCAP-UK, PGDCA). Formerly Academic Head at Sacred Heart Girls and Vice Principal with the Notre Dame Sisters in Chicago, she has spent 21 years helping students do their best.",
+      bio: "A UK based educator with a PhD and a long list of maths and teaching qualifications (MSc, MPhil, MStat USA, B.Ed, CILT UK, PGCAP UK, PGDCA). Formerly Academic Head at Sacred Heart Girls and Vice Principal with the Notre Dame Sisters in Chicago, she has spent 21 years helping students do their best.",
     },
   ];
 
@@ -538,7 +538,7 @@ function SiteFooter() {
         <div>
           <img src={logoWhite} alt="Career Space" className="h-44 w-auto md:h-56" />
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-background/60">
-            Assessment, training and hands-on experience — making mathematics, careers and learning
+            Assessment, training and hands on experience, making mathematics, careers and learning
             itself feel like a space worth exploring.
           </p>
           <div className="mt-5 flex items-center gap-3">
@@ -622,15 +622,15 @@ function Index() {
       <ListSection
         id="products"
         eyebrow="Our products"
-        title="Self-contained tools, built for how people actually learn."
-        lede="Assessments and teaching tools designed to replace guesswork with evidence — and scores with understanding."
+        title="Self contained tools, built for how people actually learn."
+        lede="Assessments and teaching tools designed to replace guesswork with evidence, and scores with understanding."
         items={PRODUCTS}
       />
       <ListSection
         id="services"
         eyebrow="Our services"
         title="Services we run, in person."
-        lede="Hands-on work with schools, colleges and organisations across Bengaluru."
+        lede="Hands on work with schools, colleges and organisations across Bengaluru."
         items={SERVICES}
       />
       <MathCafe />
